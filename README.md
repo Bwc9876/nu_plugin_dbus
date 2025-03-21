@@ -31,7 +31,7 @@ plugin use dbus # or restart nu
     Search terms: dbus
 
     Usage:
-      > dbus 
+      > dbus
 
     Subcommands:
       dbus call - Call a method and get its response
@@ -53,7 +53,7 @@ plugin use dbus # or restart nu
     Search terms: dbus
 
     Usage:
-      > dbus call {flags} <object> <interface> <method> ...(args) 
+      > dbus call {flags} <object> <interface> <method> ...(args)
 
     Flags:
       -h, --help - Display the help message for this command
@@ -97,7 +97,7 @@ plugin use dbus # or restart nu
     Search terms: dbus
 
     Usage:
-      > dbus get {flags} <object> <interface> <property> 
+      > dbus get {flags} <object> <interface> <property>
 
     Flags:
       -h, --help - Display the help message for this command
@@ -138,7 +138,7 @@ plugin use dbus # or restart nu
     Search terms: dbus
 
     Usage:
-      > dbus get-all {flags} <object> <interface> 
+      > dbus get-all {flags} <object> <interface>
 
     Flags:
       -h, --help - Display the help message for this command
@@ -179,7 +179,7 @@ plugin use dbus # or restart nu
     Search terms: dbus
 
     Usage:
-      > dbus introspect {flags} <object> 
+      > dbus introspect {flags} <object>
 
     Flags:
       -h, --help - Display the help message for this command
@@ -220,7 +220,7 @@ plugin use dbus # or restart nu
     Search terms: dbus
 
     Usage:
-      > dbus list {flags} (pattern) 
+      > dbus list {flags} (pattern)
 
     Flags:
       -h, --help - Display the help message for this command
@@ -267,7 +267,7 @@ plugin use dbus # or restart nu
     Search terms: dbus
 
     Usage:
-      > dbus set {flags} <object> <interface> <property> <value> 
+      > dbus set {flags} <object> <interface> <property> <value>
 
     Flags:
       -h, --help - Display the help message for this command
@@ -298,4 +298,3 @@ plugin use dbus # or restart nu
     Examples:
       Set the volume of Spotify to 50%
       > dbus set --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player Volume 0.5
-
