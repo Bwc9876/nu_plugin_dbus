@@ -31,7 +31,7 @@
             if nushell.version == nu_version
             then "0.16.0"
             else abort "Nushell Version mismatch\nPlugin: ${nu_version}\tnixpkgs: ${nushell.version}";
-          nu_version = "0.103.0";
+          nu_version = "0.104.0";
 
           src = ./.;
 
