@@ -1,18 +1,22 @@
 # nu_plugin_dbus
 
-[Nushell](https://nushell.sh/) plugin for interacting with [D-Bus](https://dbus.freedesktop.org/)
+[Nushell](https://nushell.sh/) plugin for interacting with
+[D-Bus](https://dbus.freedesktop.org/)
 
-With the commands provided by this plugin, you can interact with many of the desktop-oriented
-systems on UNIX-like systems that use D-Bus, including Linux and FreeBSD. You can control media
-players, on-screen displays, power policies, and even administer services.
+With the commands provided by this plugin, you can interact with many of the
+desktop-oriented systems on UNIX-like systems that use D-Bus, including Linux
+and FreeBSD. You can control media players, on-screen displays, power policies,
+and even administer services.
 
-Nushell provides a particularly nice environment for interacting with D-Bus, as both support typed
-structured data, and interacting with this on a traditional UNIX command line with tools like
-`dbus-send` and `busctl` is cumbersome and tricky to automate.
+Nushell provides a particularly nice environment for interacting with D-Bus, as
+both support typed structured data, and interacting with this on a traditional
+UNIX command line with tools like `dbus-send` and `busctl` is cumbersome and
+tricky to automate.
 
-This plugin automatically determines the correct input types through D-Bus introspection when
-available, unlike either of the aforementioned tools, making it easier to interact with objects on
-the bus without having to implement boilerplate from documentation.
+This plugin automatically determines the correct input types through D-Bus
+introspection when available, unlike either of the aforementioned tools, making
+it easier to interact with objects on the bus without having to implement
+boilerplate from documentation.
 
 ## Install with Cargo
 
