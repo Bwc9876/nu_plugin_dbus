@@ -1,6 +1,6 @@
 [package]
 name = "nu_plugin_dbus"
-version = "0.18.0"
+version = "0.19.0"
 edition = "2021"
 
 description = "Nushell plugin for communicating with D-Bus"
@@ -13,8 +13,8 @@ repository = "https://github.com/devyn/nu_plugin_dbus"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-dbus = "0.9.7"
-nu-plugin = "0.106.1"
-nu-protocol = { version = "0.106.1", features = ["plugin"] }
-serde = { version = "1.0.219", features = ["derive"] }
+dbus = "0.9.9"
+nu-plugin = "0.107.0"
+nu-protocol = { version = "0.107.0", features = ["plugin"] }
+serde = { version = "1.0.228", features = ["derive"] }
 serde-xml-rs = "0.6.0"

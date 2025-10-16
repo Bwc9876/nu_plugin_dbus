@@ -27,9 +27,9 @@
           pname = "nu_plugin_dbus";
           version =
             if nushell.version == nu_version
-            then "0.18.0"
+            then "0.19.0"
             else abort "Nushell Version mismatch\nPlugin: ${nu_version}\tnixpkgs: ${nushell.version}";
-          nu_version = "0.106.1";
+          nu_version = "0.107.0";
 
           src = ./.;
 
