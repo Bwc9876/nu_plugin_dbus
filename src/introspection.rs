@@ -1,5 +1,6 @@
 use nu_protocol::{record, Span, Value};
 use serde::Deserialize;
+use serde_xml_rs::SerdeXml;
 
 macro_rules! list_to_value {
     ($list:expr, $span:expr) => {
@@ -10,7 +11,7 @@ macro_rules! list_to_value {
 #[derive(Debug, Clone, Deserialize, PartialEq, Eq, Default)]
 #[serde(rename_all = "kebab-case")]
 pub struct Node {
-    #[serde(default)]
+    #[serde(default, rename = "@name")]
     pub name: Option<String>,
     #[serde(default, rename = "interface")]
     pub interfaces: Vec<Interface>,
@@ -20,8 +21,9 @@ pub struct Node {
 
 impl Node {
     pub fn from_xml(xml: &str) -> Result<Node, serde_xml_rs::Error> {
-        let mut deserializer = serde_xml_rs::de::Deserializer::new_from_reader(xml.as_bytes())
-            .non_contiguous_seq_elements(true);
+        dbg!(xml);
+        let config = SerdeXml::new().overlapping_sequences(true);
+        let mut deserializer = serde_xml_rs::de::Deserializer::from_config(config, xml.as_bytes());
         Node::deserialize(&mut deserializer)
     }
 
@@ -74,6 +76,7 @@ impl Node {
 #[derive(Debug, Clone, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
 pub struct Interface {
+    #[serde(rename = "@name")]
     pub name: String,
     #[serde(default, rename = "method")]
     pub methods: Vec<Method>,
@@ -117,6 +120,7 @@ impl Interface {
 #[derive(Debug, Clone, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
 pub struct Method {
+    #[serde(rename = "@name")]
     pub name: String,
     #[serde(default, rename = "arg")]
     pub args: Vec<MethodArg>,
@@ -160,10 +164,11 @@ impl Method {
 #[derive(Debug, Clone, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
 pub struct MethodArg {
-    #[serde(default)]
+    #[serde(default, rename = "@name")]
     pub name: Option<String>,
+    #[serde(rename = "@type")]
     pub r#type: String,
-    #[serde(default)]
+    #[serde(default, rename = "@direction")]
     pub direction: Direction,
 }
 
@@ -215,6 +220,7 @@ impl Direction {
 #[derive(Debug, Clone, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
 pub struct Signal {
+    #[serde(rename = "@name")]
     pub name: String,
     #[serde(default, rename = "arg")]
     pub args: Vec<SignalArg>,
@@ -239,8 +245,9 @@ impl Signal {
 #[derive(Debug, Clone, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
 pub struct SignalArg {
-    #[serde(default)]
+    #[serde(default, rename = "@name")]
     pub name: Option<String>,
+    #[serde(rename = "@type")]
     pub r#type: String,
 }
 
@@ -260,8 +267,11 @@ impl SignalArg {
 #[derive(Debug, Clone, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
 pub struct Property {
+    #[serde(rename = "@name")]
     pub name: String,
+    #[serde(rename = "@type")]
     pub r#type: String,
+    #[serde(rename = "@access")]
     pub access: Access,
     #[serde(default, rename = "annotation")]
     pub annotations: Vec<Annotation>,
@@ -304,7 +314,9 @@ impl Access {
 #[derive(Debug, Clone, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
 pub struct Annotation {
+    #[serde(rename = "@name")]
     pub name: String,
+    #[serde(rename = "@value")]
     pub value: String,
 }
 

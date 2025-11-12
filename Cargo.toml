@@ -17,4 +17,4 @@ dbus = "0.9.9"
 nu-plugin = "0.108.0"
 nu-protocol = { version = "0.108.0", features = ["plugin"] }
 serde = { version = "1.0.228", features = ["derive"] }
-serde-xml-rs = "0.6.0"
+serde-xml-rs = "0.8.1"
