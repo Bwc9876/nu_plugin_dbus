@@ -48,6 +48,7 @@
           meta = with lib; {
             description = "A nushell plugin for interacting with dbus";
             license = licenses.mit;
+						mainProgram = "nu_plugin_dbus";
             homepage = "https://github.com/devyn/nu_plugin_dbus";
           };
         };
