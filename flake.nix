@@ -5,12 +5,14 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flakelight.url = "github:nix-community/flakelight";
     flakelight.inputs.nixpkgs.follows = "nixpkgs";
+    crane.url = "github:ipetkov/crane";
   };
 
   outputs =
-    inputs @ { self
+    inputs@{ self
     , nixpkgs
     , flakelight
+    , crane
     ,
     }:
     flakelight ./. {
@@ -23,34 +25,35 @@
         , pkg-config
         , fetchFromGitHub
         , lib
+        , pkgs
         ,
         }:
-        rustPlatform.buildRustPackage rec {
-          pname = "nu_plugin_dbus";
-          version =
-            if nushell.version == nu_version
-            then "0.20.0"
-            else abort "Nushell Version mismatch\nPlugin: ${nu_version}\tnixpkgs: ${nushell.version}";
-          nu_version = "0.108.0";
-
+        let
+          craneLib = crane.mkLib pkgs;
           src = ./.;
-
-          cargoLock.lockFile = ./Cargo.lock;
-
-          nativeBuildInputs = [
-            pkg-config
-          ];
-
-          buildInputs = [
-            dbus
-          ];
-
-          meta = with lib; {
-            description = "A nushell plugin for interacting with dbus";
-            license = licenses.mit;
-            mainProgram = "nu_plugin_dbus";
-            homepage = "https://github.com/devyn/nu_plugin_dbus";
+          commonArgs = {
+            inherit src;
+            strictDeps = true;
+            nativeBuildInputs = [
+              pkg-config
+            ];
+            buildInputs = [
+              dbus
+            ];
           };
-        };
+          cargoArtifacts = craneLib.buildDepsOnly commonArgs;
+          nu_plugin_dbus = craneLib.buildPackage (
+            commonArgs
+            // {
+              inherit cargoArtifacts;
+            }
+          );
+          nu_version = "0.108.0";
+        in
+        if nushell.version == nu_version then
+          nu_plugin_dbus
+        else
+          abort "Nushell Version mismatch\nPlugin: ${nu_version}\tnixpkgs: ${nushell.version}";
+
     };
 }
