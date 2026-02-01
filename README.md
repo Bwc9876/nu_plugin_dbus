@@ -1,5 +1,7 @@
 # nu_plugin_dbus
 
+Fork of <https://github.com/devyn/nu_plugin_dbus> that I try to keep more up-to-date.
+
 [Nushell](https://nushell.sh/) plugin for interacting with
 [D-Bus](https://dbus.freedesktop.org/)
 

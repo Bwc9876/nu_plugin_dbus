@@ -26,7 +26,7 @@ impl Pattern {
                 }
                 '?' => tokens.push(PatternToken::AnyChar),
                 _ => match tokens.last_mut() {
-                    Some(PatternToken::Exact(ref mut s)) => s.push(ch),
+                    Some(PatternToken::Exact(s)) => s.push(ch),
                     _ => tokens.push(PatternToken::Exact(ch.into())),
                 },
             }

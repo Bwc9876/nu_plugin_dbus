@@ -44,7 +44,7 @@ impl SimplePluginCommand for Introspect {
         vec!["dbus", "help", "method"]
     }
 
-    fn examples(&self) -> Vec<Example> {
+    fn examples(&self) -> Vec<Example<'_>> {
         vec![
             Example {
                 example: "dbus introspect --dest=org.mpris.MediaPlayer2.spotify \

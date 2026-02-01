@@ -44,7 +44,7 @@ impl SimplePluginCommand for GetAll {
         vec!["dbus", "properties", "property", "get"]
     }
 
-    fn examples(&self) -> Vec<Example> {
+    fn examples(&self) -> Vec<Example<'_>> {
         vec![Example {
             example: "dbus get-all --dest=org.mpris.MediaPlayer2.spotify \
                             /org/mpris/MediaPlayer2 \
