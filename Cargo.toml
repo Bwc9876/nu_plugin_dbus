@@ -1,6 +1,6 @@
 [package]
 name = "nu_plugin_dbus"
-version = "0.20.0"
+version = "0.21.0"
 edition = "2021"
 
 description = "Nushell plugin for communicating with D-Bus"
@@ -14,7 +14,7 @@ repository = "https://github.com/devyn/nu_plugin_dbus"
 
 [dependencies]
 dbus = "0.9.10"
-nu-plugin = "0.109.1"
-nu-protocol = { version = "0.109.1", features = ["plugin"] }
+nu-plugin = "0.110.0"
+nu-protocol = { version = "0.110.0", features = ["plugin"] }
 serde = { version = "1.0.228", features = ["derive"] }
 serde-xml-rs = "0.8.2"
