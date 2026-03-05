@@ -1,9 +1,9 @@
 use dbus::{
-    arg::{
-        messageitem::{MessageItem, MessageItemArray, MessageItemDict},
-        ArgType, RefArg,
-    },
     Message, Signature,
+    arg::{
+        ArgType, RefArg,
+        messageitem::{MessageItem, MessageItemArray, MessageItemDict},
+    },
 };
 use nu_protocol::{LabeledError, Record, Span, Value};
 use std::str::FromStr;
@@ -87,7 +87,7 @@ pub fn from_refarg(refarg: &dyn RefArg, span: Span) -> Result<Value, String> {
         ),
 
         ArgType::DictEntry => {
-            return Err("Encountered dictionary entry outside of dictionary".into())
+            return Err("Encountered dictionary entry outside of dictionary".into());
         }
         ArgType::Invalid => return Err("Encountered invalid D-Bus value".into()),
     })

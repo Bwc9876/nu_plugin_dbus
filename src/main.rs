@@ -1,4 +1,4 @@
-use nu_plugin::{serve_plugin, MsgPackSerializer, Plugin, PluginCommand};
+use nu_plugin::{MsgPackSerializer, Plugin, PluginCommand, serve_plugin};
 use nu_protocol::SyntaxShape;
 
 mod client;

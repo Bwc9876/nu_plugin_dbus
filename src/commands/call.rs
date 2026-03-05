@@ -1,7 +1,7 @@
 use nu_plugin::{EngineInterface, EvaluatedCall, SimplePluginCommand};
 use nu_protocol::{Example, LabeledError, Signature, SyntaxShape, Type, Value};
 
-use crate::{client::DbusClient, config::DbusClientConfig, DbusSignatureUtilExt};
+use crate::{DbusSignatureUtilExt, client::DbusClient, config::DbusClientConfig};
 
 pub struct Call;
 

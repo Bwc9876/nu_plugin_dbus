@@ -1,7 +1,7 @@
 use dbus::{
+    Message,
     arg::messageitem::MessageItem,
     channel::{BusType, Channel},
-    Message,
 };
 use nu_protocol::{LabeledError, Spanned, Value};
 

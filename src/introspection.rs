@@ -1,4 +1,4 @@
-use nu_protocol::{record, Span, Value};
+use nu_protocol::{Span, Value, record};
 use serde::Deserialize;
 use serde_xml_rs::SerdeXml;
 
