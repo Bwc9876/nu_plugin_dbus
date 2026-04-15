@@ -13,8 +13,8 @@ repository = "https://github.com/devyn/nu_plugin_dbus"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-dbus = "0.9.10"
-nu-plugin = "0.111.0"
-nu-protocol = { version = "0.111.0", features = ["plugin"] }
+dbus = "0.9"
+nu-plugin = "0.112.1"
+nu-protocol = { version = "0.112.1", features = ["plugin"] }
 serde = { version = "1.0.228", features = ["derive"] }
 serde-xml-rs = "0.8.2"
