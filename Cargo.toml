@@ -14,7 +14,7 @@ repository = "https://github.com/devyn/nu_plugin_dbus"
 
 [dependencies]
 dbus = "0.9"
-nu-plugin = "0.112.1"
-nu-protocol = { version = "0.112.1", features = ["plugin"] }
+nu-plugin = "0.112.2"
+nu-protocol = { version = "0.112.2", features = ["plugin"] }
 serde = { version = "1.0.228", features = ["derive"] }
 serde-xml-rs = "0.8.2"
