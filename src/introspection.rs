@@ -21,7 +21,6 @@ pub struct Node {
 
 impl Node {
     pub fn from_xml(xml: &str) -> Result<Node, serde_xml_rs::Error> {
-        dbg!(xml);
         let config = SerdeXml::new().overlapping_sequences(true);
         let mut deserializer = serde_xml_rs::de::Deserializer::from_config(config, xml.as_bytes());
         Node::deserialize(&mut deserializer)
