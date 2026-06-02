@@ -55,7 +55,7 @@
               };
             }
           );
-          nu_version = "0.112.2";
+          nu_version = "0.113.0";
         in
         if nushell.version == nu_version then
           nu_plugin_dbus
