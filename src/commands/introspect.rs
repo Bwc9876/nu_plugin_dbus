@@ -1,5 +1,5 @@
 use nu_plugin::{EngineInterface, EvaluatedCall, SimplePluginCommand};
-use nu_protocol::{Example, LabeledError, Signature, SyntaxShape, Type, Value};
+use nu_protocol::{CollectionColumns, Example, LabeledError, Signature, SyntaxShape, Type, Value};
 
 use crate::{DbusSignatureUtilExt, client::DbusClient, config::DbusClientConfig};
 
@@ -17,7 +17,7 @@ impl SimplePluginCommand for Introspect {
             .dbus_command()
             .accepts_dbus_client_options()
             .accepts_timeout()
-            .input_output_type(Type::Nothing, Type::Record([].into()))
+            .input_output_type(Type::Nothing, Type::Record(CollectionColumns::default()))
             .required_named(
                 "dest",
                 SyntaxShape::String,

@@ -1,20 +1,20 @@
 [package]
-name = "nu_plugin_dbus"
-version = "0.23.0"
+name    = "nu_plugin_dbus"
+version = "0.24.0"
 edition = "2024"
 
 description = "Nushell plugin for communicating with D-Bus"
-authors = ["Devyn Cairns <devyn.cairns@gmail.com>"]
-license = "MIT"
-keywords = ["plugin", "dbus", "nu"]
-categories = ["command-line-utilities"]
-repository = "https://github.com/devyn/nu_plugin_dbus"
+authors     = ["Devyn Cairns <devyn.cairns@gmail.com>"]
+license     = "MIT"
+keywords    = ["plugin", "dbus", "nu"]
+categories  = ["command-line-utilities"]
+repository  = "https://github.com/devyn/nu_plugin_dbus"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-dbus = "0.9"
-nu-plugin = "0.113.1"
-nu-protocol = { version = "0.113.1", features = ["plugin"] }
-serde = { version = "1.0.228", features = ["derive"] }
+dbus         = "0.9"
+nu-plugin    = "0.114.0"
+nu-protocol  = { version = "0.114.0", features = ["plugin"] }
+serde        = { version = "1.0.228", features = ["derive"] }
 serde-xml-rs = "0.8.2"
